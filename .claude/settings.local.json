@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:cluely.com)",
+      "WebFetch(domain:interviewcoder.co)",
+      "WebFetch(domain:pluely.com)",
+      "Bash(npx create-next-app:*)",
+      "Bash(npx create-next-app@latest ghostpad-web --typescript --tailwind --app --eslint --no-git)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nInitial commit: Phase 1 project setup complete\n\n- Initialize Next.js 15 with TypeScript and Tailwind CSS\n- Configure comprehensive Tailwind theme with custom colors, animations, and design tokens\n- Set up project structure (app, components, lib directories)\n- Create base UI components (Button, Card, Container, Section)\n- Add utility functions and site-wide constants\n- Configure ESLint and PostCSS\n- Add comprehensive .gitignore\n- Create detailed README with project overview\n\nPhase 1 deliverables complete:\n✓ Next.js project initialized\n✓ TypeScript configured\n✓ Tailwind CSS configured with custom theme\n✓ Base component library created\n✓ Project structure established\n✓ Git repository initialized\n\nReady for Phase 2: Landing page sections\n\n🤖 Generated with Claude Code\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n)\")"
+    ]
+  }
+}
