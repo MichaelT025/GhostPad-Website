@@ -14,9 +14,9 @@ export default function Home() {
     <main className="min-h-screen bg-shade-bg">
       <Navigation />
       <Hero />
-      <Features />
       <HowItWorks />
       <Demo />
+      <Features />
       <WhyShade />
       <Privacy />
       <GettingStarted />

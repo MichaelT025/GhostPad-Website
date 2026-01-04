@@ -7,8 +7,8 @@ import Section from "@/components/ui/Section";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export default function Hero() {
-  const scrollToFeatures = () => {
-    const element = document.getElementById("features");
+  const scrollToNextSection = () => {
+    const element = document.getElementById("how-it-works");
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -88,7 +88,7 @@ export default function Hero() {
                 className="flex items-center justify-center gap-2"
               >
                 <Github className="w-5 h-5" />
-                <span>View Source</span>
+                <span>{SITE_CONFIG.githubLabel}</span>
               </Button>
             </div>
 
@@ -170,14 +170,14 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden lg:block">
+        {/* Scroll indicator - centered on the page, below hero content */}
+        <div className="mt-16 hidden lg:flex justify-center">
           <button
-            onClick={scrollToFeatures}
+            onClick={scrollToNextSection}
             className="p-2 text-text-tertiary hover:text-text-secondary transition-colors animate-bounce"
-            aria-label="Scroll to features"
+            aria-label="Scroll to how it works"
           >
-            <ChevronDown className="w-6 h-6" />
+            <ChevronDown className="w-8 h-8" />
           </button>
         </div>
       </div>

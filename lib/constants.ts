@@ -11,6 +11,7 @@ export const SITE_CONFIG = {
     "A privacy-first Windows desktop app providing real-time AI assistance through a translucent overlay. Multi-provider LLM support, instant screen capture, BYOK model.",
   github: "https://github.com/MichaelT025/Shade",
   githubReleases: "https://github.com/MichaelT025/Shade/releases",
+  githubLabel: "View on GitHub",
   version: "1.0.0",
 };
 

@@ -39,7 +39,7 @@ export default function Navigation() {
               alt="Shade Icon"
               width={40}
               height={40}
-              className="w-10 h-10 rounded-xl"
+              className="w-10 h-10 rounded-none"
             />
             <div className="text-xl font-semibold text-text-primary group-hover:text-accent-strong transition-colors">
               {SITE_CONFIG.name}
