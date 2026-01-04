@@ -26,7 +26,8 @@ export default function Footer() {
                 </div>
               </div>
               <p className="text-sm text-text-secondary leading-relaxed max-w-xs">
-                {SITE_CONFIG.tagline}. Privacy-first, open source, built for Windows.
+                {SITE_CONFIG.tagline}.<br />
+                Privacy-first, open source, built for Windows.
               </p>
               <a
                 href={SITE_CONFIG.github}

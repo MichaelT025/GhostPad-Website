@@ -16,7 +16,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Shade - The Invisible AI Assistant",
+    default: "Shade - Your screen, smarter",
     template: "%s | Shade",
   },
   description:
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Michael T", url: "https://github.com/MichaelT025" }],
   creator: "Michael T",
   openGraph: {
-    title: "Shade - The Invisible AI Assistant",
+    title: "Shade - Your screen, smarter",
     description:
       "Privacy-first Windows desktop app with multi-provider AI support. BYOK, no subscriptions, open source.",
     type: "website",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shade - The Invisible AI Assistant",
+    title: "Shade - Your screen, smarter",
     description:
       "Privacy-first Windows desktop app with multi-provider AI support. BYOK, no subscriptions, open source.",
   },

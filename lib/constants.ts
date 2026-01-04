@@ -6,7 +6,7 @@
 
 export const SITE_CONFIG = {
   name: "Shade",
-  tagline: "The Invisible AI Assistant",
+  tagline: "Your screen, smarter",
   description:
     "A privacy-first Windows desktop app providing real-time AI assistance through a translucent overlay. Multi-provider LLM support, instant screen capture, BYOK model.",
   github: "https://github.com/MichaelT025/Shade",

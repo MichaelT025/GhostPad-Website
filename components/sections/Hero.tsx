@@ -1,12 +1,45 @@
 "use client";
 
-import { Download, Github, ChevronDown, Sparkles } from "lucide-react";
+import { Download, Github, ChevronDown, Star } from "lucide-react";
 import NextImage from "next/image";
+import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
 import Section from "@/components/ui/Section";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export default function Hero() {
+  const [displayText, setDisplayText] = useState("");
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
+  const [starCount, setStarCount] = useState<number | null>(null);
+  const fullText = SITE_CONFIG.tagline;
+
+  useEffect(() => {
+    // Fetch GitHub stars
+    fetch("https://api.github.com/repos/MichaelT025/Shade")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.stargazers_count !== undefined) {
+          setStarCount(data.stargazers_count);
+        }
+      })
+      .catch((err) => console.error("Error fetching GitHub stars:", err));
+  }, []);
+
+  useEffect(() => {
+    let index = 0;
+    const typeWriter = setInterval(() => {
+      if (index <= fullText.length) {
+        setDisplayText(fullText.slice(0, index));
+        index++;
+      } else {
+        clearInterval(typeWriter);
+        setIsTypingComplete(true);
+      }
+    }, 100); // Typing speed
+
+    return () => clearInterval(typeWriter);
+  }, [fullText]);
+
   const scrollToNextSection = () => {
     const element = document.getElementById("how-it-works");
     element?.scrollIntoView({ behavior: "smooth" });
@@ -42,25 +75,26 @@ export default function Hero() {
               />
             </div>
 
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-shade-panel border border-border rounded-full text-sm text-text-secondary">
-              <Sparkles className="w-3.5 h-3.5 text-accent" />
-              <span>Free & Open Source</span>
-              <span className="text-text-tertiary">•</span>
-              <span>BYOK Model</span>
+            {/* Badges */}
+            <div className="flex flex-wrap gap-3">
+              <div className="inline-flex items-center px-3 py-1.5 bg-shade-panel border border-border rounded-full text-sm text-text-secondary">
+                <span>Free & Open Source</span>
+              </div>
+              <a 
+                href={SITE_CONFIG.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-1.5 bg-shade-panel border border-border rounded-full text-sm text-text-secondary hover:border-accent/50 transition-colors"
+              >
+                <Star className="w-3.5 h-3.5 text-accent" />
+                <span>{starCount !== null ? `${starCount} stars on GitHub` : "Star on GitHub"}</span>
+              </a>
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-text-primary">
-              {SITE_CONFIG.tagline.split(" ").map((word, i) => (
-                <span key={i}>
-                  {word === "Invisible" ? (
-                    <span className="text-accent-strong">{word}</span>
-                  ) : (
-                    word
-                  )}{" "}
-                </span>
-              ))}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-text-primary min-h-[1.2em]">
+              <span>{displayText}</span>
+              <span className={`inline-block w-[3px] h-[1em] ml-1 bg-accent align-middle ${isTypingComplete ? 'animate-pulse' : 'animate-pulse'}`} />
             </h1>
 
             {/* Subheadline */}
