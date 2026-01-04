@@ -1,6 +1,7 @@
 "use client";
 
 import { Download, Github, ChevronDown, Sparkles } from "lucide-react";
+import NextImage from "next/image";
 import Button from "@/components/ui/Button";
 import Section from "@/components/ui/Section";
 import { SITE_CONFIG } from "@/lib/constants";
@@ -28,6 +29,19 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Text Content */}
           <div className="space-y-8 animate-fade-in-up">
+            {/* Logo */}
+            <div className="relative w-20 h-20 mb-6 group">
+              <div className="absolute inset-0 bg-accent/20 rounded-2xl blur-xl group-hover:bg-accent/30 transition-colors" />
+              <NextImage
+                src="/icon.png"
+                alt="Shade Logo"
+                width={80}
+                height={80}
+                className="relative w-full h-full rounded-2xl shadow-elev-2"
+                priority
+              />
+            </div>
+
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-shade-panel border border-border rounded-full text-sm text-text-secondary">
               <Sparkles className="w-3.5 h-3.5 text-accent" />
@@ -108,10 +122,19 @@ export default function Hero() {
                     <div className="w-3 h-3 rounded-full bg-warning/60" />
                     <div className="w-3 h-3 rounded-full bg-success/60" />
                   </div>
-                  <span className="text-xs text-text-tertiary font-medium">Shade</span>
+                  <div className="flex items-center gap-2">
+                    <NextImage
+                      src="/icon.png"
+                      alt="Shade Icon"
+                      width={16}
+                      height={16}
+                      className="w-4 h-4 rounded"
+                    />
+                    <span className="text-xs text-text-tertiary font-medium">Shade</span>
+                  </div>
                   <div className="w-16" />
                 </div>
-                
+
                 {/* Chat content placeholder */}
                 <div className="p-4 space-y-3">
                   <div className="flex justify-end">

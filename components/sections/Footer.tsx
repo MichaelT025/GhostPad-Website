@@ -1,4 +1,5 @@
 import Link from "next/link";
+import NextImage from "next/image";
 import { Github, ExternalLink } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { FOOTER_LINKS, SITE_CONFIG } from "@/lib/constants";
@@ -12,8 +13,17 @@ export default function Footer() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
             {/* Brand Column */}
             <div className="space-y-4 sm:col-span-2 lg:col-span-1">
-              <div className="text-xl font-semibold text-text-primary">
-                {SITE_CONFIG.name}
+              <div className="flex items-center space-x-3">
+                <NextImage
+                  src="/icon.png"
+                  alt="Shade Icon"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8 rounded-lg"
+                />
+                <div className="text-xl font-semibold text-text-primary">
+                  {SITE_CONFIG.name}
+                </div>
               </div>
               <p className="text-sm text-text-secondary leading-relaxed max-w-xs">
                 {SITE_CONFIG.tagline}. Privacy-first, open source, built for Windows.

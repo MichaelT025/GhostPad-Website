@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import NextImage from "next/image";
 import { Menu, X, Github } from "lucide-react";
 import { NAVIGATION_LINKS, SITE_CONFIG } from "@/lib/constants";
 import Button from "@/components/ui/Button";
@@ -32,7 +33,14 @@ export default function Navigation() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
+          <Link href="/" className="flex items-center space-x-3 group">
+            <NextImage
+              src="/icon.png"
+              alt="Shade Icon"
+              width={40}
+              height={40}
+              className="w-10 h-10 rounded-xl"
+            />
             <div className="text-xl font-semibold text-text-primary group-hover:text-accent-strong transition-colors">
               {SITE_CONFIG.name}
             </div>
