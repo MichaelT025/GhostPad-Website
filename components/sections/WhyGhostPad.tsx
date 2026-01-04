@@ -51,16 +51,16 @@ const comparisons = [
   },
 ];
 
-export default function WhyGhostPad() {
+export default function WhyShade() {
   return (
-    <Section id="why-ghostpad" spacing="xl" background="dark">
+    <Section id="why-ghostpad" spacing="xl" background="panel">
       <Container>
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
-            Why Choose GhostPad?
+          <h2 className="text-4xl md:text-5xl font-bold text-text-primary">
+            Why Choose Shade?
           </h2>
-          <p className="text-lg md:text-xl text-ghost-gray-light">
+          <p className="text-lg md:text-xl text-text-secondary">
             Built different. No compromises on privacy, performance, or your wallet.
           </p>
         </div>
@@ -70,27 +70,27 @@ export default function WhyGhostPad() {
           {comparisons.map((comparison, index) => (
             <Card key={index} variant="glass" hover={false}>
               <div className="space-y-6">
-                <h3 className="text-xl font-semibold text-white border-b border-ghost-gray/20 pb-3">
+                <h3 className="text-xl font-semibold text-white border-b border-border pb-3">
                   {comparison.title}
                 </h3>
 
-                {/* GhostPad Advantages */}
+                {/* Shade Advantages */}
                 <div className="space-y-3">
                   <div className="flex items-center space-x-2">
-                    <div className="w-6 h-6 rounded-full bg-accent-green/20 flex items-center justify-center flex-shrink-0">
-                      <Check className="w-4 h-4 text-accent-green" />
+                    <div className="w-6 h-6 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0">
+                      <Check className="w-4 h-4 text-success" />
                     </div>
-                    <span className="text-sm font-semibold text-accent-green">
-                      GhostPad
+                    <span className="text-sm font-semibold text-success">
+                      Shade
                     </span>
                   </div>
                   <ul className="space-y-2">
                     {comparison.ghostpad.map((item, i) => (
                       <li
                         key={i}
-                        className="flex items-start space-x-2 text-sm text-ghost-light"
+                        className="flex items-start space-x-2 text-sm text-text-secondary"
                       >
-                        <Check className="w-4 h-4 text-accent-green mt-0.5 flex-shrink-0" />
+                        <Check className="w-4 h-4 text-success mt-0.5 flex-shrink-0" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -98,12 +98,12 @@ export default function WhyGhostPad() {
                 </div>
 
                 {/* Competitors Limitations */}
-                <div className="space-y-3 pt-3 border-t border-ghost-gray/10">
+                <div className="space-y-3 pt-3 border-t border-border/50">
                   <div className="flex items-center space-x-2">
-                    <div className="w-6 h-6 rounded-full bg-ghost-gray/20 flex items-center justify-center flex-shrink-0">
-                      <X className="w-4 h-4 text-ghost-gray" />
+                    <div className="w-6 h-6 rounded-full bg-text-tertiary/20 flex items-center justify-center flex-shrink-0">
+                      <X className="w-4 h-4 text-text-tertiary" />
                     </div>
-                    <span className="text-sm font-semibold text-ghost-gray">
+                    <span className="text-sm font-semibold text-text-tertiary">
                       Others
                     </span>
                   </div>
@@ -111,9 +111,9 @@ export default function WhyGhostPad() {
                     {comparison.others.map((item, i) => (
                       <li
                         key={i}
-                        className="flex items-start space-x-2 text-sm text-ghost-gray"
+                        className="flex items-start space-x-2 text-sm text-text-tertiary"
                       >
-                        <X className="w-4 h-4 text-ghost-gray mt-0.5 flex-shrink-0" />
+                        <X className="w-4 h-4 text-text-tertiary mt-0.5 flex-shrink-0" />
                         <span>{item}</span>
                       </li>
                     ))}

@@ -1,28 +1,44 @@
 import { HTMLAttributes, forwardRef } from "react";
 import { cn } from "@/lib/utils";
 
+type CardVariant = "default" | "glass" | "bordered" | "elevated";
+
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  variant?: "default" | "glass" | "glow";
+  variant?: CardVariant;
   hover?: boolean;
-  children: React.ReactNode;
+  padding?: "none" | "sm" | "md" | "lg";
 }
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ className, variant = "default", hover = true, children, ...props }, ref) => {
-    const baseStyles =
-      "rounded-xl transition-all duration-300";
+  (
+    {
+      className,
+      variant = "default",
+      hover = false,
+      padding = "md",
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    const baseStyles = "rounded-md transition-all duration-200";
 
-    const variantStyles = {
-      default:
-        "bg-ghost-darker border border-ghost-gray/20 p-6",
-      glass:
-        "bg-ghost-dark/50 backdrop-blur-sm border border-ghost-gray/10 p-6",
-      glow:
-        "bg-ghost-darker border border-accent-blue/30 shadow-glow-sm p-6",
+    const variantStyles: Record<CardVariant, string> = {
+      default: "bg-shade-panel",
+      glass: "glass border border-border/50",
+      bordered: "bg-shade-panel border border-border",
+      elevated: "bg-shade-panel-strong shadow-elev-2",
+    };
+
+    const paddingStyles = {
+      none: "",
+      sm: "p-4",
+      md: "p-6",
+      lg: "p-8",
     };
 
     const hoverStyles = hover
-      ? "hover:scale-105 hover:shadow-xl hover:border-ghost-gray/40 cursor-pointer"
+      ? "hover:border-accent/40 hover:shadow-glow hover:-translate-y-1 cursor-pointer"
       : "";
 
     return (
@@ -31,6 +47,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
         className={cn(
           baseStyles,
           variantStyles[variant],
+          paddingStyles[padding],
           hoverStyles,
           className
         )}

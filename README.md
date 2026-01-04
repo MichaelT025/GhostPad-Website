@@ -1,10 +1,10 @@
-# GhostPad Website
+# Shade Website
 
-Official marketing and documentation website for [GhostPad](https://github.com/ghostpad) - a lightweight Windows desktop application that provides real-time AI assistance through a translucent overlay.
+Official marketing and documentation website for [Shade](https://github.com/MichaelT025/Shade) - a lightweight Windows desktop application that provides real-time AI assistance through a translucent overlay.
 
-## About GhostPad
+## About Shade
 
-**GhostPad** is a Windows 10/11 desktop application that gives you instant access to AI assistance without leaving your workflow. Built with privacy and performance in mind, it features:
+**Shade** is a Windows 10/11 desktop application that gives you instant access to AI assistance without leaving your workflow. Built with privacy and performance in mind, it features:
 
 - **Translucent Overlay** - Always-on-top interface that stays out of your way
 - **Multi-Provider LLM Support** - Works with Gemini, OpenAI, and Anthropic
@@ -15,7 +15,7 @@ Official marketing and documentation website for [GhostPad](https://github.com/g
 
 ## This Website
 
-This is the marketing and documentation website for GhostPad, built with:
+This is the marketing and documentation website for Shade, built with:
 
 - **Framework:** Next.js 15+ (App Router)
 - **Styling:** Tailwind CSS
@@ -127,7 +127,7 @@ vercel
 
 ## Contributing
 
-This is the official website for GhostPad. Contributions are welcome! Please:
+This is the official website for Shade. Contributions are welcome! Please:
 
 1. Fork the repository
 2. Create a feature branch
@@ -140,7 +140,7 @@ MIT License - See LICENSE file for details
 
 ## Links
 
-- **GhostPad Desktop App:** (Coming soon)
+- **Shade Desktop App:** (Coming soon)
 - **Documentation:** [/docs](/docs)
 - **GitHub:** (Coming soon)
 

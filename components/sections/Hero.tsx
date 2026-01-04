@@ -1,50 +1,59 @@
 "use client";
 
-import { Download, Github, ChevronDown } from "lucide-react";
+import { Download, Github, ChevronDown, Sparkles } from "lucide-react";
 import Button from "@/components/ui/Button";
-import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
+import { SITE_CONFIG } from "@/lib/constants";
 
 export default function Hero() {
   const scrollToFeatures = () => {
-    const featuresSection = document.getElementById("features");
-    featuresSection?.scrollIntoView({ behavior: "smooth" });
+    const element = document.getElementById("features");
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollToDownload = () => {
+    const element = document.getElementById("download");
+    element?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <Section spacing="xl" className="pt-32 min-h-screen flex items-center relative">
-      <Container>
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <Section spacing="xl" className="pt-24 min-h-screen flex items-center relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/3 rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Text Content */}
           <div className="space-y-8 animate-fade-in-up">
-            {/* Badges */}
-            <div className="flex flex-wrap gap-3">
-              <span className="px-3 py-1 text-xs font-medium bg-ghost-darker border border-accent-blue/30 text-accent-blue rounded-full">
-                Open Source
-              </span>
-              <span className="px-3 py-1 text-xs font-medium bg-ghost-darker border border-accent-purple/30 text-accent-purple rounded-full">
-                MIT License
-              </span>
-              <span className="px-3 py-1 text-xs font-medium bg-ghost-darker border border-accent-cyan/30 text-accent-cyan rounded-full">
-                Multi-Provider
-              </span>
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-shade-panel border border-border rounded-full text-sm text-text-secondary">
+              <Sparkles className="w-3.5 h-3.5 text-accent" />
+              <span>Free & Open Source</span>
+              <span className="text-text-tertiary">•</span>
+              <span>BYOK Model</span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              Your{" "}
-              <span className="bg-gradient-to-r from-accent-blue via-accent-purple to-accent-cyan bg-clip-text text-transparent">
-                Invisible
-              </span>
-              <br />
-              AI Assistant
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-text-primary">
+              {SITE_CONFIG.tagline.split(" ").map((word, i) => (
+                <span key={i}>
+                  {word === "Invisible" ? (
+                    <span className="text-accent-strong">{word}</span>
+                  ) : (
+                    word
+                  )}{" "}
+                </span>
+              ))}
             </h1>
 
             {/* Subheadline */}
-            <p className="text-xl md:text-2xl text-ghost-gray-light max-w-2xl">
-              Lightweight Windows desktop app providing real-time AI assistance
-              through a translucent overlay. Multi-provider LLM support, instant
-              screen capture, privacy-first architecture.
+            <p className="text-lg sm:text-xl text-text-secondary max-w-xl leading-relaxed">
+              A privacy-first Windows desktop app that floats above your work.
+              Capture your screen, ask questions, get AI-powered answers.
+              No subscriptions, no data collection.
             </p>
 
             {/* CTAs */}
@@ -52,11 +61,8 @@ export default function Hero() {
               <Button
                 variant="primary"
                 size="lg"
-                onClick={() => {
-                  const downloadSection = document.getElementById("download");
-                  downloadSection?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="flex items-center justify-center space-x-2"
+                onClick={scrollToDownload}
+                className="flex items-center justify-center gap-2"
               >
                 <Download className="w-5 h-5" />
                 <span>Download for Windows</span>
@@ -64,66 +70,94 @@ export default function Hero() {
               <Button
                 variant="outline"
                 size="lg"
-                onClick={() => window.open("https://github.com/ghostpad", "_blank")}
-                className="flex items-center justify-center space-x-2"
+                onClick={() => window.open(SITE_CONFIG.github, "_blank")}
+                className="flex items-center justify-center gap-2"
               >
                 <Github className="w-5 h-5" />
-                <span>View on GitHub</span>
+                <span>View Source</span>
               </Button>
             </div>
 
             {/* Quick Stats */}
-            <div className="flex flex-wrap gap-8 pt-4">
+            <div className="flex flex-wrap gap-8 pt-4 border-t border-border/50">
               <div>
-                <div className="text-3xl font-bold text-white">3</div>
-                <div className="text-sm text-ghost-gray">LLM Providers</div>
+                <div className="text-2xl font-semibold text-text-primary">5+</div>
+                <div className="text-sm text-text-tertiary">LLM Providers</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-white">0</div>
-                <div className="text-sm text-ghost-gray">Subscriptions</div>
+                <div className="text-2xl font-semibold text-text-primary">$0</div>
+                <div className="text-sm text-text-tertiary">No Subscriptions</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-white">100%</div>
-                <div className="text-sm text-ghost-gray">Privacy-First</div>
+                <div className="text-2xl font-semibold text-text-primary">100%</div>
+                <div className="text-sm text-text-tertiary">Private & Local</div>
               </div>
             </div>
           </div>
 
           {/* Right: Visual Placeholder */}
-          <div className="relative animate-fade-in">
-            {/* Placeholder for hero image/video */}
-            <div className="relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-br from-accent-blue/20 via-accent-purple/20 to-accent-cyan/20 border border-ghost-gray/20 shadow-glow-md">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <div className="w-20 h-20 mx-auto bg-gradient-to-br from-accent-blue to-accent-purple rounded-2xl opacity-50" />
-                  <p className="text-ghost-gray text-sm">
-                    Hero Visual Placeholder
-                    <br />
-                    <span className="text-xs">
-                      (Demo video/screenshot of translucent overlay)
-                    </span>
-                  </p>
+          <div className="relative animate-fade-in lg:animate-slide-in-right">
+            {/* Main visual container */}
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-shade-panel border border-border shadow-overlay">
+              {/* Simulated overlay window */}
+              <div className="absolute inset-4 bg-shade-panel-strong/80 backdrop-blur rounded-md border border-border/50 shadow-elev-2">
+                {/* Title bar */}
+                <div className="flex items-center justify-between px-4 py-3 border-b border-border/50">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-danger/60" />
+                    <div className="w-3 h-3 rounded-full bg-warning/60" />
+                    <div className="w-3 h-3 rounded-full bg-success/60" />
+                  </div>
+                  <span className="text-xs text-text-tertiary font-medium">Shade</span>
+                  <div className="w-16" />
                 </div>
+                
+                {/* Chat content placeholder */}
+                <div className="p-4 space-y-3">
+                  <div className="flex justify-end">
+                    <div className="bg-accent/10 border border-accent/20 rounded-md px-3 py-2 max-w-[80%]">
+                      <p className="text-sm text-text-secondary">What&apos;s this error about?</p>
+                    </div>
+                  </div>
+                  <div className="flex justify-start">
+                    <div className="bg-shade-panel border border-border/50 rounded-md px-3 py-2 max-w-[80%]">
+                      <p className="text-sm text-text-secondary">
+                        This is a <code className="text-accent text-xs">TypeError</code>. The variable is undefined...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Input bar */}
+                <div className="absolute bottom-0 left-0 right-0 p-3 border-t border-border/50">
+                  <div className="flex items-center gap-2 bg-shade-panel-muted rounded-md px-3 py-2 border border-border/30">
+                    <span className="text-sm text-text-tertiary">Ask anything...</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Placeholder label */}
+              <div className="absolute bottom-3 right-3 px-2 py-1 bg-shade-bg/80 rounded text-xs text-text-tertiary">
+                Demo preview
               </div>
             </div>
 
-            {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent-blue/20 rounded-full blur-3xl" />
-            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent-purple/20 rounded-full blur-3xl" />
+            {/* Decorative glow */}
+            <div className="absolute -inset-4 bg-gradient-radial from-accent/10 via-transparent to-transparent blur-2xl -z-10" />
           </div>
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden lg:block">
           <button
             onClick={scrollToFeatures}
-            className="text-ghost-gray hover:text-white transition-colors"
+            className="p-2 text-text-tertiary hover:text-text-secondary transition-colors animate-bounce"
             aria-label="Scroll to features"
           >
-            <ChevronDown className="w-8 h-8" />
+            <ChevronDown className="w-6 h-6" />
           </button>
         </div>
-      </Container>
+      </div>
     </Section>
   );
 }
